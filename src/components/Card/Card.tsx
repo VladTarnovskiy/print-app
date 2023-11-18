@@ -25,7 +25,7 @@ export function CustomCard({ picture }: Props) {
   return (
     <Card className="mt-6 w-96">
       <CardHeader color="blue-gray" className="relative h-56">
-        <Link to={picture.links.download}>
+        <Link to={`details/${picture.id}`}>
           <div className="relative h-[224px] w-[352px]">
             <img
               src={picture.urls.small}
@@ -37,16 +37,10 @@ export function CustomCard({ picture }: Props) {
       </CardHeader>
       <div className="tags flex flex-wrap justify-start px-6 mt-1">
         {picture.tags.map((item) => (
-          <div
-            key={uniqid()}
-            // onClick={() => {
-            //   setSearch(item.title.toLowerCase());
-            //   getPicturesBySearch();
-            // }}
-            className="hover:cursor-pointer hover:scale-105"
-          >
+          <div key={uniqid()} className="hover:cursor-pointer hover:scale-105">
             <Chip
               variant="ghost"
+              color="cyan"
               value={item.title}
               className="w-fit font text-[12px] p-1 m-1 "
             />

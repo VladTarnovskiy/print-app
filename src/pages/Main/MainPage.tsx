@@ -35,7 +35,7 @@ export const MainPage: FC = () => {
   }, []);
 
   return (
-    <ul className={styles.cards__container}>
+    <ul className={styles.pictures__container}>
       {/* {!pictures.length && !loading && 'Nothing found.'} */}
       {/* {loading ? (
       <CustomSpinner />

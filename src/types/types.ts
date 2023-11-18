@@ -11,6 +11,11 @@ export interface CardType {
   urls: {
     small: string;
   };
+  comments: Comment[];
+}
+interface Comment {
+  userName: string;
+  comment: string;
 }
 
 // interface SearchResponse {
