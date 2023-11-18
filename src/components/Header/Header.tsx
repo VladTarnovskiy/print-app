@@ -1,8 +1,9 @@
 import Logo from '@/assets/logo.svg';
 import { Button } from '@material-tailwind/react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Header = () => {
+export const Header: FC = () => {
   return (
     <header className="flex h-16 items-center justify-between px-2 mb-6">
       <div className="flex justify-start items-center">

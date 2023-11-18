@@ -10,12 +10,13 @@ import { HeartIcon } from '@heroicons/react/24/outline';
 import uniqid from 'uniqid';
 import { Link } from 'react-router-dom';
 import { CardType } from '@/types/types';
+import { FC } from 'react';
 
 interface Props {
   picture: CardType;
 }
 
-export function CustomCard({ picture }: Props) {
+export const CustomCard: FC<Props> = ({ picture }) => {
   //   const [setSearch, getPicturesBySearch] = usePosts(
   //     (state) => [state.setSearch, state.getPicturesBySearch],
   //     shallow
@@ -64,4 +65,4 @@ export function CustomCard({ picture }: Props) {
       </CardBody>
     </Card>
   );
-}
+};

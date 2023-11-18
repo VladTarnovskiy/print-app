@@ -10,12 +10,15 @@ export interface CardType {
   };
   urls: {
     small: string;
+    full: string;
   };
-  comments: Comment[];
+  comments: IComment[];
 }
-interface Comment {
+
+export interface IComment {
   userName: string;
   comment: string;
+  id: string;
 }
 
 // interface SearchResponse {

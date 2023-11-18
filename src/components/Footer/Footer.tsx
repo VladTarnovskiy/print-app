@@ -1,6 +1,7 @@
 import GithubLogo from '@/assets/github.svg';
+import { FC } from 'react';
 
-export const Footer = () => {
+export const Footer: FC = () => {
   return (
     <footer className="w-full m-auto flex justify-center pt-6 md:pt-0 mt-6 mb-2">
       <div className="w-fit mr-2">Created by &copy;Vlad Tarnovskiy</div>

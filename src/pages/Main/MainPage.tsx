@@ -1,51 +1,38 @@
 import styles from './mainPage.module.scss';
 import { CustomCard } from '@/components/Card/Card';
-// import { CustomSpinner } from '@/components/Spinner/Spinner';
 import { CardType } from '@/types/types';
-import { FC, useEffect, useState } from 'react';
-import { getPictures } from '@/services/getPictures';
+import { FC, ReactNode } from 'react';
 import uniqid from 'uniqid';
+import { CustomSpinner } from '@/components/Spinner/Spinner';
+import { useGetPicturesQuery } from '@/store/slices/ApiSlice';
 
 export const MainPage: FC = () => {
-  const [pictures, setPictures] = useState<CardType[]>([]);
+  const {
+    data: pictures,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetPicturesQuery(null);
 
-  // const searchProducts = useCallback(
-  //   async (value: string) => {
-  //     try {
-  //       setContent(false, true);
-  //       const characterInfo: CharacterInfo = await getCharactersInfo(
-  //         value,
-  //         page
-  //       );
-  //       setTimeout(() => {
-  //         const character = characterInfo.results;
-  //         setPages(characterInfo.info.pages);
-  //         setCharacter(character);
-  //         setContent(true, false);
-  //       }, 3000);
-  //     } catch {
-  //       setContent(false, false);
-  //     }
-  //   },
-  //   [page]
-  // );
+  let content: ReactNode;
 
-  useEffect(() => {
-    getPictures().then((pics) => setPictures(pics));
-  }, []);
+  if (isLoading) {
+    content = (
+      <div className="w-full flex justify-center mt-72">
+        <CustomSpinner />
+      </div>
+    );
+  } else if (isSuccess) {
+    content = pictures.map((picture: CardType) => (
+      <CustomCard key={uniqid()} picture={picture} />
+    ));
+  } else if (isError) {
+    content = (
+      <div className="w-full flex justify-center mt-72">
+        Something went wrong.
+      </div>
+    );
+  }
 
-  return (
-    <ul className={styles.pictures__container}>
-      {/* {!pictures.length && !loading && 'Nothing found.'} */}
-      {/* {loading ? (
-      <CustomSpinner />
-    ) : ( */}
-      {/* <> */}
-      {pictures.map((picture: CardType) => (
-        <CustomCard key={uniqid()} picture={picture} />
-      ))}
-      {/* </> */}
-      {/* )} */}
-    </ul>
-  );
+  return <ul className={styles.pictures__container}>{content}</ul>;
 };

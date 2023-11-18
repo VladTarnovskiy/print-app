@@ -1,7 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { MainPage } from '../pages/Main/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage/NotFoundPage';
-import { Details, detailsLoader } from '../components/Details/Details';
+import {
+  Details,
+  // detailsLoader
+} from '../pages/Details/Details';
 import { RouterError } from '../components/RouterError/RouterError';
 import { App } from '../App';
 
@@ -18,7 +21,7 @@ export const router = createBrowserRouter([
       {
         path: 'details/:detailsId',
         element: <Details />,
-        loader: detailsLoader,
+        // loader: detailsLoader,
       },
     ],
   },

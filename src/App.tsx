@@ -9,7 +9,7 @@ export const App: FC = () => {
   return (
     <>
       <Header />
-      <main className="container max-w-[1600px] m-auto">
+      <main className="container max-w-[1600px] min-h-[85vh] m-auto">
         <Outlet />
       </main>
       <Footer />
