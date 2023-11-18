@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import DinoImg from '../../assets/error-dino.svg';
+import DinoImg from '@/assets/error-dino.svg';
 import { useNavigate } from 'react-router-dom';
 
 export const RouterError: FC = () => {
