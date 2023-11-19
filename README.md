@@ -1,3 +1,5 @@
+- Deploy: https://prodlab-task.netlify.app/
+
 ## Структура:
 
 1. ### Главная страница
