@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast';
 import { FC, useState } from 'react';
+import { Tooltip } from 'react-tooltip';
 import { ThreeDots } from 'react-loader-spinner';
 import { checkEmail, checkPassword } from '@/utils/validation';
 import { loginUser, registerNewUser } from '@/utils/firebase';
@@ -68,6 +69,10 @@ export const FormComponent: FC<FormComponentProps> = ({
           {headerTitle}
         </h2>
       </div>
+      <Tooltip
+        id="my-tooltip"
+        style={{ fontSize: '1rem', width: '100%', textAlign: 'center' }}
+      />
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <div className="form__item">
@@ -91,7 +96,15 @@ export const FormComponent: FC<FormComponentProps> = ({
             </label>
             {errors.email && (
               <div className=" text-sm text-red-500 xs:w-11/12 xs:text-xs">
-                {errors.email.message}
+                {errors.email.message}.{' '}
+                <span
+                  className="cursor-pointer underline hover:text-base_green_light"
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="Valid domain: gmail.com, yahoo.com, hotmail.com, yandex.ru, mail.ru"
+                  data-tooltip-place="top"
+                >
+                  Example
+                </span>
               </div>
             )}
           </div>
