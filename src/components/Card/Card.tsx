@@ -7,20 +7,15 @@ import {
   Chip,
 } from '@material-tailwind/react';
 import { HeartIcon } from '@heroicons/react/24/outline';
-import uniqid from 'uniqid';
 import { Link } from 'react-router-dom';
-import { CardType } from '@/types/types';
+import { IPicture } from '@/types/types';
 import { FC } from 'react';
 
 interface Props {
-  picture: CardType;
+  picture: IPicture;
 }
 
 export const CustomCard: FC<Props> = ({ picture }) => {
-  //   const [setSearch, getPicturesBySearch] = usePosts(
-  //     (state) => [state.setSearch, state.getPicturesBySearch],
-  //     shallow
-  //   );
   const date = picture.created_at.split('T')[0];
 
   return (
@@ -38,7 +33,10 @@ export const CustomCard: FC<Props> = ({ picture }) => {
       </CardHeader>
       <div className="tags flex flex-wrap justify-start px-6 mt-1">
         {picture.tags.map((item) => (
-          <div key={uniqid()} className="hover:cursor-pointer hover:scale-105">
+          <div
+            key={item.title}
+            className="hover:cursor-pointer hover:scale-105"
+          >
             <Chip
               variant="ghost"
               color="cyan"

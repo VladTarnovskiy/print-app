@@ -51,13 +51,13 @@ export const FormComponent: FC<FormComponentProps> = ({
       toast(authData.message);
       setLoading(false);
     } else {
-      dispatch(
-        setUser({
-          email: authData.user.email,
-          token: authData.user.refreshToken,
-          id: authData.user.uid,
-        })
-      );
+      const userData = {
+        email: authData.user.email,
+        token: authData.user.refreshToken,
+        id: authData.user.uid,
+      };
+      dispatch(setUser(userData));
+      localStorage.setItem('user', JSON.stringify(userData));
       navigate('/');
     }
   };

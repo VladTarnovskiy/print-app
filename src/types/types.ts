@@ -1,4 +1,4 @@
-export interface CardType {
+export interface IPicture {
   id: string;
   alt_description: string;
   description: string;

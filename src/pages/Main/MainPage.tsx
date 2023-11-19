@@ -1,6 +1,6 @@
 import styles from './mainPage.module.scss';
 import { CustomCard } from '@/components/Card/Card';
-import { CardType } from '@/types/types';
+import { IPicture } from '@/types/types';
 import { FC, ReactNode } from 'react';
 import uniqid from 'uniqid';
 import { CustomSpinner } from '@/components/Spinner/Spinner';
@@ -23,7 +23,7 @@ export const MainPage: FC = () => {
       </div>
     );
   } else if (isSuccess) {
-    content = pictures.map((picture: CardType) => (
+    content = pictures.map((picture: IPicture) => (
       <CustomCard key={uniqid()} picture={picture} />
     ));
   } else if (isError) {
