@@ -7,7 +7,7 @@ import {
   Chip,
 } from '@material-tailwind/react';
 import { HeartIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { IPicture } from '@/types/types';
 import { FC } from 'react';
 
@@ -17,11 +17,12 @@ interface Props {
 
 export const CustomCard: FC<Props> = ({ picture }) => {
   const date = picture.created_at.split('T')[0];
+  const navigate = useNavigate();
 
   return (
     <Card className="mt-6 w-96">
       <CardHeader color="blue-gray" className="relative h-56">
-        <Link to={`details/${picture.id}`}>
+        <button onClick={() => navigate(`/details/${picture.id}`)}>
           <div className="relative h-[224px] w-[352px]">
             <img
               src={picture.urls.small}
@@ -29,7 +30,7 @@ export const CustomCard: FC<Props> = ({ picture }) => {
               className="hover:scale-105"
             />
           </div>
-        </Link>
+        </button>
       </CardHeader>
       <div className="tags flex flex-wrap justify-start px-6 mt-1">
         {picture.tags.map((item) => (
