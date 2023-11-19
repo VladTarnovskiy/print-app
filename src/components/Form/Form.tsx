@@ -184,7 +184,7 @@ export const FormComponent: FC<FormComponentProps> = ({
       <Toaster
         position="bottom-right"
         toastOptions={{
-          className: 'border border-base_green p-2 text-sm',
+          className: 'border border-base_yellow p-2 text-sm',
         }}
       />
     </section>

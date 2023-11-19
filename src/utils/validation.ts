@@ -1,21 +1,12 @@
 const checkEmail = (data: string) => {
-  const emailDomains = [
-    '@gmail.com',
-    '@yahoo.com',
-    '@hotmail.com',
-    '@yandex.ru',
-    '@mail.ru',
-  ];
-  const domain = data.slice(data.indexOf('@'));
-
   if (data.length < 8) {
-    return '"Minimum 8 symbols"';
+    return 'Minimum 8 symbols';
   }
 
-  const validEmail = emailDomains.includes(domain);
+  const validEmail = data.includes('@');
 
   if (!validEmail) {
-    return '"Invalid email domain"';
+    return 'Invalid email domain';
   }
 
   return true;

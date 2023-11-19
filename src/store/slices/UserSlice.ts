@@ -3,6 +3,7 @@ import { RootState } from '../store';
 
 interface InitialState {
   page: string;
+  userName: string;
   userInfo: {
     email: string | null;
     token: string | null;
@@ -12,6 +13,7 @@ interface InitialState {
 
 const initialState: InitialState = {
   page: 'Registration',
+  userName: 'Username',
   userInfo: {
     email: null,
     token: null,
@@ -40,12 +42,17 @@ const userSlice = createSlice({
     changePage: (state, { payload }) => {
       state.page = payload;
     },
+    changeUserName: (state, { payload }) => {
+      state.userName = payload;
+    },
   },
 });
 
-export const { setUser, removeUser, changePage } = userSlice.actions;
+export const { setUser, removeUser, changePage, changeUserName } =
+  userSlice.actions;
 
 export const selectUser = (state: RootState) => state.user.userInfo;
 export const selectPage = (state: RootState) => state.user.page;
+export const selectUserName = (state: RootState) => state.user.userName;
 
 export default userSlice.reducer;

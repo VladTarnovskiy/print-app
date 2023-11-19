@@ -20,6 +20,8 @@ import {
   useUpdatePictureMutation,
 } from '@/store/slices/ApiSlice';
 import clsx from 'clsx';
+import { useSelector } from 'react-redux';
+import { selectUserName } from '@/store/slices/UserSlice';
 
 export const DetailsPage: FC = () => {
   const { detailsId } = useParams();
@@ -33,8 +35,8 @@ export const DetailsPage: FC = () => {
   } = useGetPictureQuery(detailsId!);
   const navigate = useNavigate();
   const [commentValue, setCommentValue] = useState('');
-
   const [updatePicture] = useUpdatePictureMutation();
+  const userName = useSelector(selectUserName);
 
   const onClose = () => {
     navigate('/', { replace: false });
@@ -42,7 +44,7 @@ export const DetailsPage: FC = () => {
 
   const addNewComment = async (pictureId: string, comments: IComment[]) => {
     const newComment = {
-      userName: 'User',
+      userName: userName,
       comment: commentValue,
       id: uniqid(),
     };
