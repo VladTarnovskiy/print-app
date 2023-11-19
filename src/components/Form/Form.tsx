@@ -1,6 +1,5 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { Tooltip } from 'react-tooltip';
 import { toast, Toaster } from 'react-hot-toast';
 import { FC, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
@@ -69,10 +68,6 @@ export const FormComponent: FC<FormComponentProps> = ({
           {headerTitle}
         </h2>
       </div>
-      <Tooltip
-        id="my-tooltip"
-        style={{ fontSize: '1rem', width: '100%', textAlign: 'center' }}
-      />
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <div className="form__item">
@@ -96,15 +91,7 @@ export const FormComponent: FC<FormComponentProps> = ({
             </label>
             {errors.email && (
               <div className=" text-sm text-red-500 xs:w-11/12 xs:text-xs">
-                {errors.email.message}.{' '}
-                <span
-                  className="cursor-pointer underline hover:text-base_green_light"
-                  data-tooltip-id="my-tooltip"
-                  data-tooltip-content="Valid domain: gmail.com, yahoo.com, hotmail.com, yandex.ru, mail.ru"
-                  data-tooltip-place="top"
-                >
-                  Example
-                </span>
+                {errors.email.message}
               </div>
             )}
           </div>
