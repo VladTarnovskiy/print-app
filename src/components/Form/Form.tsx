@@ -1,11 +1,11 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast, Toaster } from 'react-hot-toast';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Tooltip } from 'react-tooltip';
 import { ThreeDots } from 'react-loader-spinner';
 import { checkEmail, checkPassword } from '@/utils/validation';
-import { loginUser, registerNewUser } from '@/utils/firebase';
+import { loginUser, logout, registerNewUser } from '@/utils/firebase';
 import { changePage, selectPage, setUser } from '@/store/slices/UserSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -31,6 +31,10 @@ export const FormComponent: FC<FormComponentProps> = ({
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    logout();
+  }, []);
 
   const {
     register,

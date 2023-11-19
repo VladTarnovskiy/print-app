@@ -4,7 +4,7 @@ import {
   selectUserName,
   setUser,
 } from '@/store/slices/UserSlice';
-import { auth, logout } from '@/utils/firebase';
+import { auth } from '@/utils/firebase';
 import { Button } from '@material-tailwind/react';
 import { ChangeEvent, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +32,6 @@ export const Header: FC = () => {
       })
     );
     localStorage.removeItem('user');
-    logout();
     navigate('/auth');
   };
 
