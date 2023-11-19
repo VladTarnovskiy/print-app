@@ -42,7 +42,7 @@ export const DetailsPage: FC = () => {
 
   const addNewComment = async (pictureId: string, comments: IComment[]) => {
     const newComment = {
-      userName: 'John',
+      userName: 'User',
       comment: commentValue,
       id: uniqid(),
     };
