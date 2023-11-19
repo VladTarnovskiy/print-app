@@ -48,7 +48,6 @@ export const Header: FC = () => {
             <input
               type="text"
               className="max-w-[200px] w-full py-1 px-2 text-right"
-              defaultValue="UserName"
               value={userName}
               onChange={handleUserName}
             />
