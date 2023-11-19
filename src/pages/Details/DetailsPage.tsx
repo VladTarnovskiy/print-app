@@ -19,14 +19,16 @@ import {
   useGetPictureQuery,
   useUpdatePictureMutation,
 } from '@/store/slices/ApiSlice';
+import clsx from 'clsx';
 
-export const Details: FC = () => {
+export const DetailsPage: FC = () => {
   const { detailsId } = useParams();
   const {
     data: picture,
     isLoading,
     isSuccess,
     isError,
+    isFetching,
     refetch,
   } = useGetPictureQuery(detailsId!);
   const navigate = useNavigate();
@@ -46,6 +48,7 @@ export const Details: FC = () => {
     };
     const newComments = [...comments, newComment];
     await updatePicture({ id: pictureId, comments: newComments });
+    refetch();
   };
 
   const removeComment = async (commentId: string) => {
@@ -128,7 +131,9 @@ export const Details: FC = () => {
               <img src={SentImg} alt="arrow" className="w-10 h-10" />
             </button>
           </div>
-          <div className="comments__container">
+          <div
+            className={clsx('comments__container', isFetching && 'opacity-50')}
+          >
             {picture.comments.map((comment) => (
               <Comment
                 key={comment.id}

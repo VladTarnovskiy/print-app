@@ -10,7 +10,7 @@ export const RouterError: FC = () => {
       <div className="mt-2">Something went wrong.</div>
       <button
         onClick={() => navigate(-1)}
-        className="h-10 rounded-md mt-6 p-2 text-md shadow-teal-500 shadow-sm hover:shadow-yellow-400 bg-gray-800"
+        className="h-10 rounded-md mt-6 p-2 text-md text-white shadow-teal-500 shadow-sm bg-base_green"
       >
         Go back
       </button>

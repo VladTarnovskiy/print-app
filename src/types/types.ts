@@ -21,19 +21,8 @@ export interface IComment {
   id: string;
 }
 
-// interface SearchResponse {
-//   results: Card[];
-//   total: number;
-//   total_pages: number;
-// }
-
-// interface RequestProps {
-//   search: string;
-//   page?: number;
-//   sort?: string;
-// }
-
-// interface MyUser {
-//   email: string;
-//   password: string;
-// }
+export interface IUser {
+  email: string;
+  token: string;
+  id: string;
+}

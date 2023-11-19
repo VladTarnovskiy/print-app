@@ -8,13 +8,6 @@ export const getPictures = async (): Promise<CardType[]> => {
     const response = await axios({
       method: 'get',
       url: `${baseUrl}/photos`,
-      // params: {
-      //   query: search,
-      //   page: page,
-      //   per_page: 20,
-      //   order_by: sort,
-      //   client_id: 'sP8YdBsJSg8cHVqUXc7g4K4Ts3fEzyCZeQv4KDu2fR8',
-      // },
     });
     return response.data;
   } catch {

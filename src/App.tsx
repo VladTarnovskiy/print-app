@@ -1,18 +1,12 @@
 import { FC } from 'react';
-import { Outlet } from 'react-router-dom';
-
-import { Header } from '@/components/Header/Header';
+import { RouterProvider } from 'react-router-dom';
+import { privateRouter, router } from './router/router';
+import { auth } from './utils/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import './index.css';
-import { Footer } from '@/components/Footer/Footer';
 
 export const App: FC = () => {
-  return (
-    <>
-      <Header />
-      <main className="container max-w-[1600px] min-h-[85vh] m-auto">
-        <Outlet />
-      </main>
-      <Footer />
-    </>
-  );
+  const [user] = useAuthState(auth);
+
+  return <RouterProvider router={user ? router : privateRouter} />;
 };
