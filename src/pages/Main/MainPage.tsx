@@ -1,4 +1,4 @@
-import styles from './mainPage.module.scss';
+import style from './mainPage.module.scss';
 import { CustomCard } from '@/components/Card/Card';
 import { IPicture } from '@/types/types';
 import { FC, ReactNode } from 'react';
@@ -18,7 +18,7 @@ export const MainPage: FC = () => {
 
   if (isLoading) {
     content = (
-      <div className="w-full flex justify-center mt-72">
+      <div className="flex justify-center mt-72">
         <CustomSpinner />
       </div>
     );
@@ -28,11 +28,9 @@ export const MainPage: FC = () => {
     ));
   } else if (isError) {
     content = (
-      <div className="w-full flex justify-center mt-72">
-        Something went wrong.
-      </div>
+      <div className="flex justify-center mt-72">Something went wrong.</div>
     );
   }
 
-  return <ul className={styles.pictures__container}>{content}</ul>;
+  return <div className={style.pictures__container}>{content}</div>;
 };

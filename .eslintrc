@@ -42,5 +42,6 @@
       "pragma": "React",
       "version": "detect"
     }
-  }
+  },
+  "ignorePatterns": ["**/*.css", "**/*.scss"]
 }
