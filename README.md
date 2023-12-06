@@ -1,4 +1,4 @@
-- Deploy: https://prodlab-task.netlify.app/
+- Deploy: https://vladtarnovskiy-print-app.netlify.app
 
 ## Структура:
 
