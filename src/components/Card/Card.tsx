@@ -19,20 +19,18 @@ export const CustomCard: FC<Props> = ({ picture }) => {
   const navigate = useNavigate();
 
   return (
-    <Card className="mt-6 w-96 hover:opacity-5 hover:bg-slate-950">
+    <Card
+      className="mt-6 w-96 hover:bg-cyan-300/20 hover:cursor-pointer"
+      onClick={() => navigate(`/details/${picture.id}`)}
+    >
       <CardHeader color="blue-gray" className="relative h-56">
-        <button onClick={() => navigate(`/details/${picture.id}`)}>
-          <div className="relative h-[224px] w-[352px]">
-            <img src={picture.urls.small} alt="card-image" />
-          </div>
-        </button>
+        <div className="relative h-[224px] w-[352px]">
+          <img src={picture.urls.small} alt="card-image" />
+        </div>
       </CardHeader>
       <div className="tags flex flex-wrap justify-start px-6 mt-1">
         {picture.tags.map((item) => (
-          <div
-            key={item.title}
-            className="hover:cursor-pointer hover:scale-105"
-          >
+          <div key={item.title}>
             <Chip
               variant="ghost"
               color="cyan"
