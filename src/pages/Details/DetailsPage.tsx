@@ -1,6 +1,6 @@
 import { FC, ReactNode, useState } from 'react';
 import { CustomSpinner } from '../../components/Spinner/Spinner';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { HeartIcon } from '@heroicons/react/24/outline';
 import {
   Card,
@@ -75,22 +75,19 @@ export const DetailsPage: FC = () => {
     content = (
       <Card className="mt-6 max-w-[1000px] w-full m-auto">
         <CardHeader color="blue-gray" className="relative">
-          <Link to={`details/${picture.id}`}>
+          <a href={picture.links.download}>
             <div className="relative">
               <img
                 src={picture.urls.full}
                 alt="card-image"
-                className="hover:scale-105"
+                className="hover:scale-[102%] transition-all"
               />
             </div>
-          </Link>
+          </a>
         </CardHeader>
         <div className="tags flex flex-wrap justify-start px-6 mt-1">
           {picture.tags.map((item) => (
-            <div
-              key={item.title}
-              className="hover:cursor-pointer hover:scale-105"
-            >
+            <div key={item.title}>
               <Chip
                 variant="ghost"
                 color="cyan"
